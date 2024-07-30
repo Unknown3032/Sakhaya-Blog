@@ -1,5 +1,5 @@
 "use client"; // This is a client component 👈🏽
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import UserNavigation from './UserNavigation';
 import Image from 'next/image'
 import Link from 'next/link'
@@ -12,12 +12,14 @@ import { IoSearch } from "react-icons/io5";
 import { LuFileEdit } from "react-icons/lu";
 import { GoBell } from "react-icons/go";
 import { UserContext } from '@/app/layout';
+import axios from 'axios';
+import { storeInSession } from '@/SessionFunc';
 
 
 const Navbar = () => {
     const [search, setSearch] = useState(false) // This is a client component 👈🏽
     const [userNavigate, setUserNavigate] = useState(false) // This is a client component 👈🏽
-    const { userAuth, userAuth: { token, profile_img }, setCriteria } = useContext(UserContext);
+    const { userAuth, userAuth: { token, profile_img, new_notification_available }, setUserAuth } = useContext(UserContext);
     const { push } = useRouter();
 
 
@@ -28,8 +30,32 @@ const Navbar = () => {
             e.target.value = null
         }
     }
+
+    useEffect(() => {
+
+        if (token) {
+            axios.get(process.env.NEXT_PUBLIC_URL + '/api/notificatoinNew', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }).then(({ data: { data } }) => {
+
+                let newUserAuth = { ...userAuth, ...data }
+                storeInSession("user", JSON.stringify(newUserAuth))
+                setUserAuth(newUserAuth)
+
+            })
+                .catch(err => {
+                    console.log(err.message)
+                })
+        }
+
+    }, [token])
+
+
+
     return (
-        <nav className='navbar'>
+        <nav className='navbar z-50'>
             {/* log  */}
             <Link href={"/"} className='w-10 flex-none'>
                 <Image className='fill-black' src={"/hindu.jpg"} width={200} height={200} alt='hindu' />
@@ -60,9 +86,13 @@ const Navbar = () => {
                 {
                     token ?
                         <>
-                            <Link href={'/'}>
+                            <Link href={'/dashboard/notifications'}>
                                 <button className=' flex justify-center items-center w-12 h-12 rounded-full bg-grey relative hover:bg-black/10'>
-                                    <GoBell className='text-2xl text-dark-grey block mt-1' />
+                                    <i className='text-2xl text-dark-grey block mt-1 fi fi-rr-bell'></i>
+                                    {/* <GoBell className='text-2xl text-dark-grey block mt-1' /> */}
+                                    {new_notification_available ?
+                                        <span className='bg-red w-3 h-3 rounded-full absolute z-10 top-2 right-2'></span>
+                                        : ""}
                                 </button>
                             </Link>
 

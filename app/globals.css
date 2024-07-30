@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Inter:wght@400;500&display=swap');
 @import url('https://cdn-uicons.flaticon.com/2.4.2/uicons-brands/css/uicons-brands.css');
+@import "~@flaticon/flaticon-uicons/css/all/all";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +15,7 @@
     }
 
     body {
-        @apply font-inter font-normal text-black;
+        @apply font-inter font-normal text-black bg-white;
     }
 
     i {
@@ -82,7 +83,7 @@
         @apply flex gap-4 items-center py-5 text-dark-grey hover:text-black;
     }
 
-    .sidebar-link.active {
+    .sidebar-link-active {
         @apply text-black border-r-2 border-black pl-6 bg-grey/50 -ml-6 md:rounded-tl-lg md:rounded-bl-lg max-md:border-none;
     }
 

@@ -167,7 +167,18 @@ const BlogEditor = () => {
             title, des, banner, tags, content, draft: false
         }
 
-        axios.post(process.env.NEXT_PUBLIC_URL + "/api/blogCreate", { ...blogObj, id: blogId },
+        let sentData = {
+            ...blogObj
+        }
+
+        if (blogId != "empty") {
+            sentData = {
+                ...blogObj,
+                id: blogId,
+            }
+        }
+
+        axios.post(process.env.NEXT_PUBLIC_URL + "/api/blogCreate", sentData,
             {
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -204,7 +215,18 @@ const BlogEditor = () => {
             title, des, banner, tags, content, draft: true
         }
 
-        axios.post(process.env.NEXT_PUBLIC_URL + "/api/blogCreate", { ...blogObj, id: blogId, draft: true },
+        let sentData = {
+            ...blogObj
+        }
+
+        if (blogId != "empty") {
+            sentData = {
+                ...blogObj,
+                id: blogId,
+            }
+        }
+
+        axios.post(process.env.NEXT_PUBLIC_URL + "/api/blogCreate", sentData,
             {
                 headers: {
                     "Authorization": `Bearer ${token}`

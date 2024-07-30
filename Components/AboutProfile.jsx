@@ -1,13 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
-import { CiFacebook, CiYoutube, CiInstagram, CiGlobe, CiTwitter } from "react-icons/ci";
-import { AiFillGithub } from "react-icons/ai";
 import { getFullDay } from '@/Common/Date';
 
 const AboutProfile = ({ social_links, joinedAt, bio, className }) => {
-    const Capatlize = (string) => {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+
 
     return (
         <div className={"md: w-[90%] md:mt-7 " + className}>
@@ -21,7 +17,7 @@ const AboutProfile = ({ social_links, joinedAt, bio, className }) => {
                         // let iconsSocial = ()
 
                         return link ? <Link href={link} key={key} target='_blank' className=''>
-                            <i class={"fi " + (key !== 'website' ? "fi-brands-" + key : "fi-rr-globe") + " text-2xl hover:text-black"}></i>
+                            <i className={"fi " + (key !== 'website' ? "fi-brands-" + key : "fi-rr-globe") + " text-2xl hover:text-black"}></i>
                         </Link> :
                             " "
                     })

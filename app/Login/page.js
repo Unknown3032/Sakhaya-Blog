@@ -38,10 +38,14 @@ const Login = () => {
             setTimeout(() => {
                 storeInSession("user", JSON.stringify(data))
                 setUserAuth(data);
+                toast.dismiss(loadingToast);
+
             }, 1000);
             // console.log(data);
         }).catch(({ response }) => {
             toast.error("Internal Server Error ");
+            toast.dismiss(loadingToast);
+
         })
     }
 
@@ -74,11 +78,13 @@ const Login = () => {
 
             setTimeout(() => {
                 storeInSession("user", JSON.stringify(data?.data))
+                toast.dismiss(loadingToast);
                 setUserAuth(data?.data);
 
             }, 1000);
 
         }).catch(({ response }) => {
+            toast.dismiss(loadingToast);
             toast.error(response?.data?.data?.error);
         })
     }

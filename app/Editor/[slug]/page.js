@@ -42,7 +42,6 @@ const Editor = ({ params }) => {
         axios.post(process.env.NEXT_PUBLIC_URL + "/api/getSingleBlog", { blog_id: blogId, draft: true, mode: "edit" })
             .then(({ data: { data: { blog } } }) => {
                 setBlog(blog)
-                console.log(blog);
                 setLoading(false)
             }).catch(err => {
                 setBlog(null)

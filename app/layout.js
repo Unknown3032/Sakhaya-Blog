@@ -29,8 +29,11 @@ export default function RootLayout({ children }) {
   const [criteria, setCriteria] = useState(false)
 
   useEffect(() => {
+
+
     let userInSession = lookInSession("user")
     userInSession ? setUserAuth(JSON.parse(userInSession)) : setUserAuth({ token: null })
+
 
     if (pathname === '/') {
       // router.refresh()

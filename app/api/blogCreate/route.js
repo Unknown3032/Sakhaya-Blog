@@ -47,7 +47,7 @@ export async function POST(req) {
     if (userId) {
         let { banner, title, des, content, tags, draft, id } = await req.json();
 
-        if (!title.length) {
+        if (!title?.length) {
             data = { message: "Give title to your blog " }
             status = 403;
             return NextResponse.json({ data }, { status })
@@ -55,25 +55,25 @@ export async function POST(req) {
 
         if (!draft) {
 
-            if (!des.length || des.length > 200) {
+            if (!des?.length || des.length > 200) {
                 data = { message: "Write description ('max length is 200') for your blog in order to publish it" }
                 status = 403;
                 return NextResponse.json({ data }, { status })
             }
 
-            if (!banner.length) {
+            if (!banner?.length) {
                 data = { message: "Upload blog Banner for your blog in order to publish it" }
                 status = 403;
                 return NextResponse.json({ data }, { status })
             }
 
-            if (!tags.length) {
+            if (!tags?.length) {
                 data = { message: "Add atleast one tag for your blog in order to publish it" }
                 status = 403;
                 return NextResponse.json({ data }, { status })
             }
 
-            if (!content?.blocks.length) {
+            if (!content?.blocks?.length) {
                 data = { message: "Write some content for your blog in order to publish it" }
                 status = 403;
                 return NextResponse.json({ data }, { status })
@@ -87,13 +87,14 @@ export async function POST(req) {
         let blog_id = id || title.replace(/[^a-zA-Z1-9]/g, " ").replace(/\s+/g, "-").trim() + nanoid();
 
         if (id) {
-
-            Blog.findOneAndUpdate({ blog_id }, { banner, title, des, content, tags, draft: draft ? draft : false })
+            await Blog.findOneAndUpdate({ blog_id }, { banner, title, des, content, tags, draft: draft ? draft : false })
                 .then(() => {
                     data = { id: blog_id }
                     status = 200;
                     return NextResponse.json({ data }, { status })
                 }).catch(err => {
+                    console.log(err.message);
+
                     data = { message: err.message }
                     status = 500;
                     return NextResponse.json({ data }, { status })
@@ -101,23 +102,26 @@ export async function POST(req) {
 
         } else {
             let blog = new Blog({
-                title, banner, des, content, tags, author: userId, blog_id, draft: Boolean(draft)
+                title, banner, des, content, tags, author: userId, blog_id, draft: draft ? draft : false
             })
-            blog.save().then(blog => {
+            await blog.save().then(async blog => {
                 let incrementBlogLen = draft ? 0 : 1;
 
-                User.findOneAndUpdate({ _id: userId }, { $inc: { "account_info.total_posts": incrementBlogLen }, $push: { "blogs": blog._id } }).then(user => {
+                await User.findOneAndUpdate({ _id: userId }, { $inc: { "account_info.total_posts": incrementBlogLen }, $push: { "blogs": blog._id } }).then(user => {
                     data = { message: blog._id }
                     status = 200;
                     return NextResponse.json({ data }, { status })
 
                 }).catch(err => {
+                    console.log(err.message);
+
                     data = { message: "filed to update total number of posts" }
                     status = 500;
                     return NextResponse.json({ data }, { status })
                 })
 
             }).catch(err => {
+                console.log(err.message);
                 data = { message: "filed to publish blog" }
                 status = 500;
                 return NextResponse.json({ data }, { status })

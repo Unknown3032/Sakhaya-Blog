@@ -12,7 +12,7 @@ import axios from 'axios';
 import UserCard from '@/Components/UserCard';
 import { LuUser2 } from "react-icons/lu";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
     const [latestBlogs, setLatestBlogs] = useState(null)
     const [searchUsers, setSearchUsers] = useState(null)
 
@@ -127,4 +127,4 @@ const page = ({ params }) => {
     )
 }
 
-export default page
+export default Page

@@ -55,7 +55,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className='navbar z-50'>
+        <nav className='navbar z-10 sticky top-0 flex items-center gap-12 w-full px-[5vw] py-5 h-[80px] border-b border-grey bg-whiteD'>
             {/* log  */}
             <Link href={"/"} className='w-10 flex-none'>
                 <Image className='fill-black' src={"/hindu.jpg"} width={200} height={200} alt='hindu' />

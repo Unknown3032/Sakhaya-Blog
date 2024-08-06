@@ -4,10 +4,7 @@ const nextConfig = {
     eslint: {
         ignoreDuringBuilds: true,
     },
-    reactStrictMode: false,
-    experimental: {
-        missingSuspenseWithCSRBailout: false,
-    }
+    reactStrictMode: false
 }
 
 module.exports = nextConfig

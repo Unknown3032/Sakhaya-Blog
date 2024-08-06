@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Inter:wght@400;500&display=swap');
 @import url('https://cdn-uicons.flaticon.com/2.4.2/uicons-brands/css/uicons-brands.css');
 @import "~@flaticon/flaticon-uicons/css/all/all";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 @layer components {
     * {
         @apply m-0 p-0 box-border text-base outline-purple/30 duration-100;

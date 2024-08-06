@@ -1,7 +1,7 @@
 'use client'
 
 
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState, Suspense } from 'react'
 import Notifications from '@/Components/Notifications'
 import Link from 'next/link';
 
@@ -119,7 +119,9 @@ export const Page = ({ params }) => {
 
                     {
                         curPage == 'blogs' ?
-                            <ManageBlogs /> :
+                            <Suspense>
+                                <ManageBlogs />
+                            </Suspense> :
                             ''
                     }
 

@@ -11,7 +11,7 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { FiBell, FiEdit, FiUser, FiLock } from "react-icons/fi";
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
     let { slug: curPage } = params
     let { push } = useRouter()
 
@@ -133,4 +133,4 @@ const page = ({ params }) => {
     )
 }
 
-export default page
+export default Page

@@ -5,13 +5,13 @@ import Link from 'next/link';
 import React, { useContext, useRef, useState } from 'react'
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { fadeIn } from '@/Common/Animate';
 import toast, { Toaster } from 'react-hot-toast';
 
 
 // icons 
-import { IoMdEye, IoMdEyeOff, IoIosKey } from "react-icons/io";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { RiUserFill } from "react-icons/ri";
 import { UserContext } from '../layout';
 import { authWithGoogle } from '@/middleware/firebase';

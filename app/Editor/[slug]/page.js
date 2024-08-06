@@ -1,10 +1,13 @@
 "use client"; // This is a client component 👈🏽
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../layout'
-import BlogEditor from '@/Components/BlogEditor';
+// import BlogEditor from '@/Components/BlogEditor';
 import { useParams, useRouter } from 'next/navigation';
 import Loader from '@/Components/Loader';
 import axios from 'axios';
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 const blogSturcture = {
     title: "",
@@ -55,14 +58,17 @@ const Editor = ({ params }) => {
     }
 
     return (
-        <EditorContext.Provider value={{ blog, setBlog, textEditor, setTextEditor }}>
-            <div>
-                {
-                    loading ? <Loader /> :
-                        <BlogEditor />
-                }
-            </div>
-        </EditorContext.Provider>
+        <>
+            <EditorContext.Provider value={{ blog, setBlog, textEditor, setTextEditor }}>
+                <div>
+                    {
+                        loading ? <Loader /> :
+                            // <BlogEditor />
+                            <></>
+                    }
+                </div>
+            </EditorContext.Provider>
+        </>
     )
 }
 

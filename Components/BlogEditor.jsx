@@ -19,7 +19,7 @@ import EditorJS from '@editorjs/editorjs';
 import { tools } from './EditorTools'
 
 //modals import 
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, RadioGroup, Radio, modal } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, Button, useDisclosure } from "@nextui-org/react";
 import Tag from './Tag';
 import axios from 'axios';
 
@@ -27,7 +27,7 @@ import axios from 'axios';
 
 
 const BlogEditor = () => {
-    let { setCriteria, userAuth: { token } } = useContext(UserContext)
+    let { userAuth: { token } } = useContext(UserContext)
     let { blog, blog: { title, banner, content, tags, des }, setBlog, setTextEditor, textEditor } = useContext(EditorContext)
     const { push } = useRouter();
     let imageUrl = banner.length ? banner : '/blogBanner.png'

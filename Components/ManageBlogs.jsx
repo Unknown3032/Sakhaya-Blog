@@ -14,7 +14,6 @@ import { fadeIn } from '@/Common/Animate'
 import { motion } from 'framer-motion';
 import { AuthorBlogCard, AuthorDraftCard } from "./AuthorBlogCard"
 import LoadMore from "./LoadMore"
-import { useSearchParams } from 'next/navigation'
 
 const ManageBlogs = () => {
 
@@ -24,9 +23,7 @@ const ManageBlogs = () => {
 
     const { userAuth: { token } } = useContext(UserContext)
 
-    const searchParams = useSearchParams()
 
-    const activeTab = searchParams.get('tab')
 
 
     const getBlogs = ({ page, draft, deletedDocCount = 0 }) => {

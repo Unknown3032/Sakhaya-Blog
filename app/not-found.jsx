@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default async function NotFound() {
+export default async function NotFound({ params }) {
 
     return (
         <section className='h-cover relative p-10 flex flex-col items-center gap-20 text-center'>

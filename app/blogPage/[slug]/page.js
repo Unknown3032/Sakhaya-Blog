@@ -12,6 +12,9 @@ import BlogPostCard from '@/Components/BlogPostCard';
 import BlockContent from '@/Components/BlockContent';
 import CommentsComponent, { fetchComments } from '@/Components/CommentsComponent';
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 const blogStructure = {
   title: "",
   content: [],

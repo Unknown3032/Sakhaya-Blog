@@ -114,7 +114,7 @@ const ManageBlogs = () => {
 
             </div>
 
-            <InPageNavigation routes={['Published Blogs', 'Drafts']} defaulActiveIndex={activeTab != 'draft' ? 0 : 1}>
+            <InPageNavigation routes={['Published Blogs', 'Drafts']} >
 
                 {
                     blogs == null ? <Loader /> :

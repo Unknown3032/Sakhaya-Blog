@@ -1,13 +1,17 @@
 "use client"; // This is a client component 👈🏽
 import React, { createContext, useContext, useEffect, useState } from 'react'
+
+import dynamic from "next/dynamic"
+
 import { UserContext } from '../../layout'
+
+const BlogEditor = dynamic(() => import("@/Components/BlogEditor"))
 // import BlogEditor from '@/Components/BlogEditor';
 import { useParams, useRouter } from 'next/navigation';
 import Loader from '@/Components/Loader';
 import axios from 'axios';
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+
 
 const blogSturcture = {
     title: "",
@@ -63,8 +67,8 @@ const Editor = ({ params }) => {
                 <div>
                     {
                         loading ? <Loader /> :
-                            // <BlogEditor />
-                            <></>
+                            <BlogEditor />
+                        // <></>
                     }
                 </div>
             </EditorContext.Provider>

@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation';
 
+import { useParams, useRouter } from 'next/navigation';
+import React, { useContext, useEffect, useState } from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,9 +13,9 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 // context 
+import EditorJS from '@editorjs/editorjs';
 import { UserContext } from '@/app/layout'
 import { EditorContext } from '@/app/Editor/[slug]/page'
-import EditorJS from '@editorjs/editorjs';
 import { tools } from './EditorTools'
 
 //modals import 

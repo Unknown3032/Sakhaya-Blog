@@ -40,7 +40,7 @@ const UserNavigation = () => {
                     <p>Profile</p>
                 </Link>
 
-                <Link href={`/dashboard/blog`} className='flex link items-center gap-2 pl-8 py-4' >
+                <Link href={`/dashboard/blogs`} className='flex link items-center gap-2 pl-8 py-4' >
                     <MdOutlineSpeed className='text-2xl' />
                     <p>Dashboard</p>
                 </Link>

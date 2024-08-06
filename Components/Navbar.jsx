@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation';
 import { IoMdSearch } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import { LuFileEdit } from "react-icons/lu";
-import { GoBell } from "react-icons/go";
 import { UserContext } from '@/app/layout';
 import axios from 'axios';
 import { storeInSession } from '@/SessionFunc';
@@ -57,8 +56,8 @@ const Navbar = () => {
     return (
         <nav className='navbar z-10 sticky top-0 flex items-center gap-12 w-full px-[5vw] py-5 h-[80px] border-b border-grey bg-whiteD'>
             {/* log  */}
-            <Link href={"/"} className='w-10 flex-none'>
-                <Image className='fill-black' src={"/hindu.jpg"} width={200} height={200} alt='hindu' />
+            <Link href={"/"} className='w-32 flex-none'>
+                <Image className='fill-black' src={"/hindu.png"} width={300} height={300} alt='hindu' />
             </Link>
 
             {/* search  */}

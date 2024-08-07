@@ -23,7 +23,6 @@ const UserNavigation = () => {
 
     return (
         <motion.div
-            variants={fadeIn(0.1)}
             initial='hidden'
             animate='show'
             exit='hidden'

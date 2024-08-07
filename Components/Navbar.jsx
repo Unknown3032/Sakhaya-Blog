@@ -54,10 +54,10 @@ const Navbar = () => {
 
 
     return (
-        <nav className='navbar z-10 sticky top-0 flex items-center gap-12 w-full px-[5vw] py-5 h-[80px] border-b border-grey bg-whiteD'>
+        <nav className='navbar z-50 sticky top-0 flex items-center gap-12 w-full px-[5vw] py-5 h-[80px] border-b border-grey bg-whiteD'>
             {/* log  */}
             <Link href={"/"} className='w-32 flex-none'>
-                <Image className='fill-black' src={"/hindu.png"} width={300} height={300} alt='hindu' />
+                <Image className='fill-black' src={"/anime.png"} width={300} height={300} alt='hindu' />
             </Link>
 
             {/* search  */}

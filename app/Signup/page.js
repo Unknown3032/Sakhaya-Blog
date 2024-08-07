@@ -137,10 +137,10 @@ const Signup = () => {
                     >
 
                         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-                            <div className='w-14 mx-auto flex-none'>
-                                <Image src={'/hindu.jpg'} className="" width={400} height={400} alt='logo' />
+                            <div className='w-32 mx-auto flex-none'>
+                                <Image src={'/anime.png'} className="" width={400} height={400} alt='logo' />
                             </div>
-                            <div className="mt-12 flex flex-col items-center">
+                            <div className=" flex flex-col items-center">
                                 <h1 className="text-3xl font-semibold">
                                     Join Us Today
                                 </h1>

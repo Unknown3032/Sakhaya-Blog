@@ -26,9 +26,11 @@ const Page = ({ params }) => {
     let pageStateTab = useRef()
 
     useEffect(() => {
-        setShowSideNav(false);
+        if (token) {
+            setShowSideNav(false);
 
-        pageStateTab.current.click();
+            pageStateTab.current.click();
+        }
 
     }, [pageState])
 
@@ -48,7 +50,6 @@ const Page = ({ params }) => {
 
 
     return (
-
         token == null ? push('/Login') :
             <>
 

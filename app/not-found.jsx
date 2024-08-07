@@ -11,8 +11,8 @@ export default async function NotFound({ params }) {
 
 
             <div className='mt-auto'>
-                <img className='h-8 object-contain block mx-auto select-none' src={'/hindu.jpg'} alt="" />
-                <p className='mt-5 text-dark-grey'>Read millions of stories around the world</p>
+                <img className='h-20 object-contain block mx-auto select-none' src={'/anime.png'} alt="" />
+                <p className='mt-3 text-dark-grey'>Read millions of stories around the world</p>
             </div>
         </section>
     )

@@ -1,4 +1,6 @@
 "use client"; // This is a client component 👈🏽
+
+
 import { createContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
@@ -45,6 +47,13 @@ export default function RootLayout({ children }) {
   // console.log(userAuth.token);
   return (
     <html lang="en">
+      <head>
+        <title>AniFills</title>
+
+        <meta name='description' content='Explore the vibrant world of anime with our blog, where we dive deep into character analyses, show reviews, and the latest news. Join us as we celebrate your favorite series and uncover hidden gems in the anime universe!D' />
+
+        <link rel="icon" href="/favicon.png" sizes="48x48" />
+      </head>
       <body className={inter.className}>
         <NextUIProvider>
           <UserContext.Provider value={{ userAuth, setUserAuth, setCriteria, criteria }}>
